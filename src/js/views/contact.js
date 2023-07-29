@@ -9,7 +9,7 @@ export const Contact = () => {
 
 	return (
 		<>			
-		<Link to="/addcontact">
+		<Link to="/add">
 			<button className="btn btn-success">Add a New Contact</button>
 		</Link>
 			<div className="container mt-3">

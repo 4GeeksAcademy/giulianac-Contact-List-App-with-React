@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import rigoImage from "../../img/rigo-baby.jpg";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Card() {
     const { store, actions } = useContext(Context);
+    const { id } = useParams();
 
+    console.log(typeof {id} );
     return (
         <div>
             {store.contacts.map((contact) => 
@@ -19,7 +21,7 @@ function Card() {
                                 <h5 className="card-title">{contact.name}</h5>
                                 <div className="profile-details d-flex">
                                     <i className="fa fa-map-marker-alt" />
-                                    <p className="card-text text-muted">{contact.home_address}</p>
+                                    <p className="card-text text-muted">{contact.homeAddress}</p>
                                 </div>
                                 <div className="profile-details d-flex">
                                     <i className="fas fa-phone" />
@@ -36,7 +38,7 @@ function Card() {
                             </div>
                         </div>
                         <div className="col-md-3">
-                            <Link to="/addContact">
+                            <Link to={`/edit/${contact.id}`}>
                             <button className="card-button" >
                                 <i className="fas fa-pencil-alt" />
                             </button>

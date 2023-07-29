@@ -10,6 +10,7 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import AddContact from "./views/addContact";
+import UpdateContact from "./views/updateContact";
 
 //create your first component
 const Layout = () => {
@@ -23,7 +24,8 @@ const Layout = () => {
 				<ScrollToTop>
 					<Routes>
 						<Route path="/" element={<Contact />} />
-						<Route path="/addcontact" element={<AddContact />} />
+						<Route path="/add" element={<AddContact />} />
+						<Route path="/edit/:id" element={<UpdateContact />} />
 						{/* <Route path="/demo" element={<Demo />} />
 						<Route path="/single/:theid" element={<Single />} /> */}
 						<Route path="*" element={<h1>Not found!</h1>} />

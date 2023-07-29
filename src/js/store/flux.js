@@ -18,28 +18,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					id: 1,
 					name: "John St Cloud",
-					home_address: "1905 Snowhite St.",
+					homeAddress: "1905 Snowhite St.",
 					phone: "(305) 476-2006",
 					email: "johnst@exampleemail.com"
 				},
 				{
 					id: 2,
 					name: "Jane Doe",
-					home_address: "4545 NW 36th St.",
+					homeAddress: "4545 NW 36th St.",
 					phone: "(780) 345-1001",
 					email: "missjdoe@exampleemail.com"
 				},
 				{
 					id: 3,
 					name: "John Deer",
-					home_address: "7383 SW 1st St.",
+					homeAddress: "7383 SW 1st St.",
 					phone: "(805) 451-1331",
 					email: "johndeer@exampleemail.com"
 				},
 				{
 					id: 4,
 					name: "James Shakespeare",
-					home_address: "23 SW 45th Ave.",
+					homeAddress: "23 SW 45th Ave.",
 					phone: "(205) 345-1311",
 					email: "literature@exampleemail.com"
 				},
@@ -78,13 +78,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ contacts: listOfContacts.filter((item) => item !== contact) });
 			},
 
-			// //edit contact from the list
-			// editContact: (contact) => {
-			// 	//pulls the contacts in the store
-			// 	let listOfContacts = getStore().contacts;
+			//add contact to the list
+			addContact: (contact) => {
+				// pulls contacts from the store
+				let listOfContacts = getStore().contacts;
+				// creates an id for the new contact and add rest of its info
+				const newContact = {
+					id: listOfContacts.length + 1,
+					...contact
+				};
+				// adds new contact to the list
+				setStore({ contacts: [...listOfContacts, newContact] });
+			},
 
-			// },
-
+			//edit contact from the list
+			editContact: (id, updatedContact) => {
+				// pulls contacts from the store
+				let listOfContacts = getStore().contacts;
+				// if contact with id exists then update it
+				const contactIndex = listOfContacts.findIndex(contact => contact.id === id);
+				if (contactIndex !== -1) {
+					const updatedContacts = [...listOfContacts];
+					updatedContacts[contactIndex] = { id, ...updatedContact };
+					// updates the contacts' info in the store
+					setStore({ contacts: updatedContacts });
+				}
+			},
 		}
 	};
 };

@@ -1,31 +1,30 @@
 import React, { useContext, useState } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { Context } from '../store/appContext';
-import { Link } from 'react-router-dom';
 
-function AddContact() {
+function UpdateContact() {
+    const { id } = useParams();
+    //to redirect after submitting
+    const navigate = useNavigate();
     const { store, actions } = useContext(Context);
-    const [newContact, setNewContact] = useState({
-        name: "",
-        homeAddress: "",
-        phone: "",
-        email: ""
+
+    const [updatedContact, setUpdatedContact] = useState({
+        name: store.contacts[id - 1].name,
+        homeAddress: store.contacts[id - 1].homeAddress,
+        phone: store.contacts[id - 1].phone,
+        email: store.contacts[id - 1].email
     });
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        actions.addContact(newContact);
-        // clears the form after clicking submitting
-        setNewContact({
-            name: "",
-            homeAddress: "",
-            phone: "",
-            email: ""
-        });
+        actions.editContact(parseInt(id), updatedContact);
+        // redirects back to the contact list view
+        navigate("/");
     };
 
     return (
         <div className="container mt-3">
-            <h1 className="text-center">Add a New Contact</h1>
+            <h1 className="text-center">Edit a Contact</h1>
             <form onSubmit={handleSubmit}>
                 <div className="form-group mb-3">
                     <label htmlFor="inputName">Full Name</label>
@@ -34,8 +33,8 @@ function AddContact() {
                         className="form-control"
                         id="inputName"
                         placeholder="Full Name"
-                        value={newContact.name}
-                        onChange={(e) => setNewContact({ ...newContact, name: e.target.value })}
+                        value={updatedContact.name}
+                        onChange={(e) => setUpdatedContact({ ...updatedContact, name: e.target.value })}
                     />
                 </div>
                 <div className="form-group mb-3">
@@ -45,8 +44,8 @@ function AddContact() {
                         className="form-control"
                         id="inputEmail"
                         placeholder="Enter Email"
-                        value={newContact.email}
-                        onChange={(e) => setNewContact({ ...newContact, email: e.target.value })}
+                        value={updatedContact.email}
+                        onChange={(e) => setUpdatedContact({ ...updatedContact, email: e.target.value })}
                     />
                 </div>
                 <div className="form-group mb-3">
@@ -56,8 +55,8 @@ function AddContact() {
                         className="form-control"
                         id="inputPhone"
                         placeholder="Enter Phone"
-                        value={newContact.phone}
-                        onChange={(e) => setNewContact({ ...newContact, phone: e.target.value })}
+                        value={updatedContact.phone}
+                        onChange={(e) => setUpdatedContact({ ...updatedContact, phone: e.target.value })}
                     />
                 </div>
                 <div className="form-group mb-3">
@@ -67,8 +66,8 @@ function AddContact() {
                         id="inputAddress"
                         rows="1"
                         placeholder="Enter Address"
-                        value={newContact.homeAddress}
-                        onChange={(e) => setNewContact({ ...newContact, homeAddress: e.target.value })}
+                        value={updatedContact.homeAddress}
+                        onChange={(e) => setUpdatedContact({ ...updatedContact, homeAddress: e.target.value })}
                     ></textarea>
                 </div>
                 <button type="submit" className="btn btn-primary">Save</button>
@@ -80,4 +79,4 @@ function AddContact() {
     )
 }
 
-export default AddContact;
+export default UpdateContact;
