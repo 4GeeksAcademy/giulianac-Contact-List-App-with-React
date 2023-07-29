@@ -3,8 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Contact } from "./views/contact";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -26,8 +24,6 @@ const Layout = () => {
 						<Route path="/" element={<Contact />} />
 						<Route path="/add" element={<AddContact />} />
 						<Route path="/edit/:id" element={<UpdateContact />} />
-						{/* <Route path="/demo" element={<Demo />} />
-						<Route path="/single/:theid" element={<Single />} /> */}
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 				</ScrollToTop>

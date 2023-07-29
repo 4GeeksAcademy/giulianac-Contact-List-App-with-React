@@ -70,7 +70,7 @@ function UpdateContact() {
                         onChange={(e) => setUpdatedContact({ ...updatedContact, homeAddress: e.target.value })}
                     ></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary">Save</button>
+                <button type="submit" className="btn btn-success">Save</button>
             </form>
             <Link to="/">
                 <small>or get back to contacts</small>

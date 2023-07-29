@@ -1,9 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { Context } from '../store/appContext';
 import { Link } from 'react-router-dom';
+import Modal from '../component/Modal';
 
 function AddContact() {
     const { store, actions } = useContext(Context);
+
+    // set state to create newContact object
     const [newContact, setNewContact] = useState({
         name: "",
         homeAddress: "",
@@ -13,8 +16,8 @@ function AddContact() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        actions.addContact(newContact);
-        // clears the form after clicking submitting
+        actions.checkEmptyFields(newContact);
+        // clears form fields after clicking save
         setNewContact({
             name: "",
             homeAddress: "",
@@ -71,11 +74,12 @@ function AddContact() {
                         onChange={(e) => setNewContact({ ...newContact, homeAddress: e.target.value })}
                     ></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary">Save</button>
+                <button type="submit" className="btn btn-success">Save</button>
             </form>
             <Link to="/">
                 <small>or get back to contacts</small>
             </Link>
+            <Modal/>
         </div>
     )
 }
