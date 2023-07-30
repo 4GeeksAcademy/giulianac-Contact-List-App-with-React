@@ -28,8 +28,8 @@ function AddContact() {
 
     return (
         <div className="container mt-3">
-            <h1 className="text-center">Add a New Contact</h1>
             <form onSubmit={handleSubmit}>
+                <h1 className="text-center mb-4">Add a New Contact</h1>
                 <div className="form-group mb-3">
                     <label htmlFor="inputName">Full Name</label>
                     <input
@@ -74,12 +74,14 @@ function AddContact() {
                         onChange={(e) => setNewContact({ ...newContact, homeAddress: e.target.value })}
                     ></textarea>
                 </div>
-                <button type="submit" className="btn btn-success">Save</button>
+                <div className="row text-center">
+                    <button type="submit" className="btn btn-success w-50 mx-auto mt-4">Save</button>
+                    <Link to="/">
+                        <small>or get back to contacts</small>
+                    </Link>
+                </div>
             </form>
-            <Link to="/">
-                <small>or get back to contacts</small>
-            </Link>
-            <Modal/>
+            <Modal />
         </div>
     )
 }
