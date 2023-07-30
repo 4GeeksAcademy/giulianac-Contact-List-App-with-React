@@ -8,10 +8,12 @@ export const Contact = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<>			
-		<Link to="/add">
-			<button className="btn btn-success">Add a New Contact</button>
-		</Link>
+		<>
+			<div className="add-new-btn">
+				<Link to="/add">
+					<button className="btn btn-success">Add a New Contact</button>
+				</Link>
+			</div>
 			<div className="container mt-3">
 				<Card />
 			</div>

@@ -3,7 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 
 			showModal: false,
-
+			contactToBeDeleted: null,
 			contacts: [
 				{
 					id: 1,
@@ -35,15 +35,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				},
 			]
 		},
-		actions: {
 
-			//delete contact from the list
-			deleteContact: (contact) => {
-				//pulls the contacts in the store
-				let listOfContacts = getStore().contacts;
-				//filters the contact and generates new array
-				setStore({ contacts: listOfContacts.filter((item) => item !== contact) });
-			},
+		actions: {
 
 			//add contact to the list
 			addContact: (contact) => {
@@ -92,6 +85,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//close modal button
 			closeModal: () => {
 				setStore({ showModal: false });
+			},
+
+			// set contact to be deleted
+			setContactToBeDeleted: (contact) => {
+				setStore({ contactToBeDeleted: contact });
+			},
+
+			// close the confirm delete modal without deleting a record
+			closeDeleteModal: () => {
+				setStore({ showModal: false, contactToBeDeleted: null });
+			},
+
+			//delete contact from the list
+			deleteContact: (contact) => {
+				//pulls the contacts in the store
+				let listOfContacts = getStore().contacts;
+				//filters the contact and generates new array
+				setStore({ contacts: listOfContacts.filter((item) => item !== contact) });
+				// close the confirm delete modal after deleting a record
+				getActions().closeDeleteModal();
 			},
 		}
 	};

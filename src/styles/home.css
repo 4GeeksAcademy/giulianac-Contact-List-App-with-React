@@ -3,6 +3,7 @@
 }
 
 body {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,12 +16,18 @@ body {
         url(https://source.unsplash.com/E8Ufcyxz514/2400x1823) center / cover no-repeat fixed;
 }
 
+h2 {
+    font-size: 1.2rem;
+}
+
 p {
     margin-bottom: 0;
     margin-left: 0.5rem;
 }
 
 img {
+    margin-top: 25%;
+    margin-left: 1rem;
     border-radius: 50%;
 }
 
@@ -33,23 +40,24 @@ i {
 .card {
     max-width: 300px;
     min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
     max-width: 500px;
-    height: 300px;
     padding: 35px;
-
     border: 1px solid rgba(255, 255, 255, .25);
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.45);
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-
     backdrop-filter: blur(15px);
 }
 
+.card-body {
+    margin-left: 2rem;
+}
+
 .card-button {
+    display: flex;
+    float: right;
+    margin-right: 1rem;
+    margin-top: 0.7rem;
     background-color: transparent;
     border: none;
 }

@@ -2,12 +2,17 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import rigoImage from "../../img/rigo-baby.jpg";
 import { Link, useParams } from "react-router-dom";
+import DeleteModal from "./DeleteModal";
 
 function Card() {
     const { store, actions } = useContext(Context);
     const { id } = useParams();
 
-    console.log(typeof {id} );
+    const handleDeleteClick = (contact) => {
+        actions.setContactToBeDeleted(contact);
+        actions.toggleModal(true);
+      };
+
     return (
         <div>
             {store.contacts.map((contact) => 
@@ -18,7 +23,7 @@ function Card() {
                         </div>
                         <div className="col-md-6">
                             <div className="card-body">
-                                <h5 className="card-title">{contact.name}</h5>
+                                <h2 className="card-title">{contact.name}</h2>
                                 <div className="profile-details d-flex">
                                     <i className="fa fa-map-marker-alt" />
                                     <p className="card-text text-muted">{contact.homeAddress}</p>
@@ -43,13 +48,14 @@ function Card() {
                                 <i className="fas fa-pencil-alt" />
                             </button>
                             </Link>
-                            <button className="card-button" onClick={() => actions.deleteContact(contact)}>
+                            <button className="card-button" onClick={() => handleDeleteClick(contact)}>
                                 <i className="fas fa-trash-alt" />
                             </button>
                         </div>
                     </div>
                 </div>
             )}
+            <DeleteModal/>
         </div>
     );
 }
