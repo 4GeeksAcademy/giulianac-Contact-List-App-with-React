@@ -5,8 +5,6 @@ import ScrollToTop from "./component/scrollToTop";
 import { Contact } from "./views/contact";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
 import AddContact from "./views/addContact";
 import UpdateContact from "./views/updateContact";
 

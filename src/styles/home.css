@@ -13,7 +13,7 @@ body {
 
     color: #224;
     background:
-        url(https://source.unsplash.com/E8Ufcyxz514/2400x1823) center / cover no-repeat fixed;
+        url(https://source.unsplash.com/ypkr_nJMxfw/2400x1823) center / cover no-repeat fixed;
 }
 
 h2 {
@@ -65,9 +65,12 @@ i {
     }
 }
 
-form,
 .modal-content {
     padding: 35px;
+}
+
+form,
+.modal-content {
     border: 1px solid rgba(255, 255, 255, .25);
     border-radius: 20px;
     background-color: rgb(255, 255, 255);
