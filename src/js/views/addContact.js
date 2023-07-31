@@ -27,7 +27,7 @@ function AddContact() {
     };
 
     return (
-        <div className="container mt-3">
+        <div className="container my-3">
             <form onSubmit={handleSubmit}>
                 <h1 className="text-center mb-4">Add a New Contact</h1>
                 <div className="form-group mb-3">

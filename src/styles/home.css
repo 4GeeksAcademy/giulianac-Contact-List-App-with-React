@@ -26,15 +26,14 @@ p {
 }
 
 img {
-    margin-top: 25%;
-    margin-left: 1rem;
-    border-radius: 50%;
+    border-radius: 0 25%;
 }
 
 i {
-    color: gray;
+    color: #224;
     position: relative;
     top: 5px;
+
 }
 
 .card {
@@ -50,16 +49,20 @@ i {
 }
 
 .card-body {
-    margin-left: 2rem;
+    margin-left: 1rem;
 }
 
 .card-button {
     display: flex;
     float: right;
-    margin-right: 1rem;
-    margin-top: 0.7rem;
+    margin-right: 0.5rem;
     background-color: transparent;
     border: none;
+
+    &:hover {
+        transform: scale(1.1);
+        text-shadow: 0 0 10px #ff923c;
+    }
 }
 
 form,

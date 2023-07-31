@@ -66,8 +66,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			// toggle the modal on
-			toggleModal: (visible) => {
-				setStore({ showModal: visible })
+			toggleModal: (show) => {
+				setStore({ showModal: show })
 			},
 
 			// checks if all fields are filled else shows modals

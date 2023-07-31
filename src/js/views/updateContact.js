@@ -4,7 +4,6 @@ import { Context } from '../store/appContext';
 
 function UpdateContact() {
     const { id } = useParams();
-    //to redirect after submitting
     const navigate = useNavigate();
     const { store, actions } = useContext(Context);
 
@@ -23,9 +22,9 @@ function UpdateContact() {
     };
 
     return (
-        <div className="container mt-3">
+        <div className="container my-3">
             <form onSubmit={handleSubmit}>
-            <h1 className="text-center mb-4">Edit a Contact</h1>
+                <h1 className="text-center mb-4">Edit a Contact</h1>
                 <div className="form-group mb-3">
                     <label htmlFor="inputName">Full Name</label>
                     <input
