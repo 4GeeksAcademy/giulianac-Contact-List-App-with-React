@@ -58,19 +58,15 @@ i {
     margin-right: 0.5rem;
     background-color: transparent;
     border: none;
+}
 
-    &:hover {
-        transform: scale(1.1);
-        text-shadow: 0 0 10px #ff923c;
-    }
+.card-button:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 10px #ff923c;
 }
 
 .modal-content {
-    padding: 35px;
-}
-
-form,
-.modal-content {
+    padding: 30px;
     border: 1px solid rgba(255, 255, 255, .25);
     border-radius: 20px;
     background-color: rgb(255, 255, 255);
@@ -79,6 +75,10 @@ form,
 
 form {
     min-width: 25rem;
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
 
     .form-control {
         background-color: #f2f6f8;
@@ -98,7 +98,7 @@ form {
         }
     }
 
-    textarea .form-control {
+    textarea.form-control {
         padding: .5rem 1.8rem;
     }
 
@@ -123,7 +123,7 @@ form {
     transition: all 0.3s ease-in-out;
 }
 
-.btn-primary,
+.btn-primary:hover,
 .btn-success:hover:enabled {
     box-shadow: 0 0.5em 0.5em -0.4em #ff923cba;
     background-size: 100% 100%;
