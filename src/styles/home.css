@@ -79,35 +79,35 @@ form {
     border-radius: 20px;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+}
 
-    .form-control {
-        background-color: #f2f6f8;
-        border-radius: 2rem;
-        border: none;
-        box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.11);
+.form-control {
+    background-color: #f2f6f8;
+    border-radius: 2rem;
+    border: none;
+    box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.11);
+}
 
-        &.thick {
-            height: 3.3rem;
-            padding: .5rem 3.5rem;
-        }
+.form-control.thick {
+    height: 3.3rem;
+    padding: .5rem 3.5rem;
+}
 
-        &:focus {
-            background-color: #f2f6f8;
-            border: none;
-            box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.11);
-        }
-    }
+.form-control:focus {
+    background-color: #f2f6f8;
+    border: none;
+    box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.11);
+}
 
-    textarea.form-control {
-        padding: .5rem 1.8rem;
-    }
+textarea.form-control {
+    padding: .5rem 1.8rem;
+}
 
-    ::placeholder {
-        font-size: 1rem;
-        color: #838788;
-        position: relative;
-        left: 0;
-    }
+.form-control::placeholder {
+    font-size: 1rem;
+    color: #838788;
+    position: relative;
+    left: 0;
 }
 
 .btn-primary,
